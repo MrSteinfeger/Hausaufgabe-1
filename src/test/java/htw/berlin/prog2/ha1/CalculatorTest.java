@@ -113,13 +113,29 @@ class CalculatorTest {
         // Erste Rechnung
         calc.pressDigitKey(2);
         calc.pressBinaryOperationKey("+");
-        calc.pressDigitKey("4");
+        calc.pressDigitKey(4);
         calc.pressEqualsKey();
 
         // Danach sollte mit einer neuen Angabe eine neue Rechnung auch beginnen
-        calc.pressDigitKey("8");
+        calc.pressDigitKey(8);
 
         String expected = "4"; //neue Eingabe
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("should clear error when typing new number after error")
+    void testClearAfterError() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(9);
+        calc.pressNegativeKey();
+        calc.pressUnaryOperationKey("√"); // Error
+        calc.pressDigitKey(2); // neue Eingabe nach Error
+
+        String expected = "2";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
