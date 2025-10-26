@@ -105,5 +105,26 @@ class CalculatorTest {
 
     }
 
+    @Test
+    @DisplayName("should start a new calculateion after pressing Equals")
+    void testNewCalculationAfterNewEquals() {
+        Calculator calc = new Calculator();
+
+        // Erste Rechnung
+        calc.pressDigitKey(2);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey("4");
+        calc.pressEqualsKey();
+
+        // Danach sollte mit einer neuen Angabe eine neue Rechnung auch beginnen
+        calc.pressDigitKey("8");
+
+        String expected = "4"; //neue Eingabe
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
 }
 
