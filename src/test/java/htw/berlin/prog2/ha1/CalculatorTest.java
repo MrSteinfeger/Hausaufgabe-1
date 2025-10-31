@@ -119,7 +119,7 @@ class CalculatorTest {
         // Danach sollte mit einer neuen Angabe eine neue Rechnung auch beginnen
         calc.pressDigitKey(8);
 
-        String expected = "4"; //neue Eingabe
+        String expected = "8"; //neue Eingabe
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
