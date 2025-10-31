@@ -106,7 +106,7 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should start a new calculateion after pressing Equals")
+    @DisplayName("should start a new calculation after pressing Equals")
     void testNewCalculationAfterNewEquals() {
         Calculator calc = new Calculator();
 
