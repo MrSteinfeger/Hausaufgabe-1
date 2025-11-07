@@ -37,10 +37,14 @@ public class Calculator {
             resultJustShown = false;
         }
 
-        if (screen.equals("0") || latestValue == Double.parseDouble(screen)) screen = "";
+        // Nur parseDouble, wenn screen nicht leer ist
+        if (screen.isEmpty() || screen.equals("0") || (!screen.isEmpty() && latestValue == Double.parseDouble(screen))) {
+            screen = "";
+        }
 
         screen = screen + digit;
     }
+
 
     /**
      * Empfängt den Befehl der C/CE-Taste (Clear).
